@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+  </head>
+  <body>
+   <p>Play "Rock, Paper, Scissors" in the console, Human :)</p>
+    <script>
+      let humanScore = 0;
+      let computerScore = 0;
+
+      function round() {
+        let choices = ["rock", "paper", "scissors"];
+
+        let computerSelection =
+          choices[Math.floor(Math.random() * choices.length)];
+
+        let playerSelection = prompt("Human! Choose rock, paper, or scissors!");
+
+        if (
+          playerSelection.toLowerCase() === "rock" &&
+          computerSelection === "rock"
+        ) {
+          console.log("Rock vs Rock. Human and Computer Tie.");
+        } else if (
+          playerSelection.toLowerCase() === "rock" &&
+          computerSelection === "paper"
+        ) {
+          console.log("Rock vs Paper. Human loses.");
+          computerScore++;
+        } else if (
+          playerSelection.toLowerCase() === "rock" &&
+          computerSelection === "scissors"
+        ) {
+          console.log("Rock vs Scissors. Human wins.");
+          humanScore++;
+        }
+
+        // End of Human Choice "ROCK"
+        else if (
+          playerSelection.toLowerCase() === "paper" &&
+          computerSelection === "paper"
+        ) {
+          console.log("Paper vs Paper. Human and Computer Tie.");
+        } else if (
+          playerSelection.toLowerCase() === "paper" &&
+          computerSelection === "scissors"
+        ) {
+          console.log("Paper vs Scissors. Human loses.");
+          computerScore++;
+        } else if (
+          playerSelection.toLowerCase() === "paper" &&
+          computerSelection === "rock"
+        ) {
+          console.log("Paper vs Rock. Human wins.");
+          humanScore++;
+        }
+
+        //  End of Human Choice "PAPER"
+        else if (
+          playerSelection.toLowerCase() === "scissors" &&
+          computerSelection === "scissors"
+        ) {
+          console.log("Scissors vs Scissors. Human and Computer Tie.");
+        } else if (
+          playerSelection.toLowerCase() === "scissors" &&
+          computerSelection === "rock"
+        ) {
+          console.log("Scissors vs Rock. Human loses.");
+          computerScore++;
+        } else if (
+          playerSelection.toLowerCase() === "scissors" &&
+          computerSelection === "paper"
+        ) {
+          console.log("Scissors vs Paper. Human wins.");
+          humanScore++;
+        }
+        // End of Human Choice "SCISSORS"
+        else {
+          console.log("Type rock, paper, or scissors");
+        }
+      }
+
+      function game(){
+       round();
+       round();
+       round();
+       round();
+       round();
+       if (humanScore > computerScore){
+        console.log("Human won" + " " + humanScore + "vs" + computerScore + " !")
+       } else if (humanScore < computerScore){
+        console.log("Human lost" + " " + humanScore + "vs" + computerScore + " :(")
+      }else {
+        console.log("Human and Computer tied" + " " + humanScore + "vs" + computerScore + " .")
+      }
+      humanScore = 0;
+      computerScore = 0; 
+      }
+    </script>
+  </body>
+</html>
